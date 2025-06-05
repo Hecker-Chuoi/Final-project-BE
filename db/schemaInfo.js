@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 /**
  * Create a Mongoose Schema.
@@ -16,4 +16,4 @@ const SchemaInfo = mongoose.model("SchemaInfo", schemaInfo);
 /**
  * Make this available to our application.
  */
-module.exports = SchemaInfo;
+export default SchemaInfo;

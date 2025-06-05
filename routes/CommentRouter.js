@@ -1,9 +1,9 @@
-const express = require("express");
-const comment = require("../db/commentModel");
-const router = express.Router();
+// import express from "express";
+// import comment from "../db/commentModel.js";
+// const router = express.Router();
 
-router.post("/", async (request, response) => {});
+// router.post("/", async (request, response) => { });
 
-router.get("/", async (request, response) => {});
+// router.get("/", async (request, response) => { });
 
-module.exports = router;
+// export default router;

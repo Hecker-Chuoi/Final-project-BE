@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 /**
  * Define the Mongoose Schema for a Comment.
@@ -34,4 +34,4 @@ const Photo = mongoose.model.Photos || mongoose.model("Photos", photoSchema);
 /**
  * Make this available to our application.
  */
-module.exports = Photo;
+export default Photo;
