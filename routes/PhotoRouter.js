@@ -65,4 +65,41 @@ router.post("/commentsOfPhoto/:photo_id", async (req, res) => {
     }
 });
 
+router.post("/commentsOfPhoto/:photo_id", async (req, res) => {
+    try {
+
+    } catch (err) {
+        console.error(err);
+        res.status(500).send({ message: "Server error" });
+    }
+});
+
+router.post("/new", jsonParser, async (req, res) => {
+    try {
+        const { file_name, user_id } = req.body;
+
+        if (!file_name || !user_id) {
+            return res.status(400).send({ message: "file_name and user_id are required" });
+        }
+
+        if (!mongoose.Types.ObjectId.isValid(user_id)) {
+            return res.status(400).send({ message: "Invalid user_id" });
+        }
+
+        const newPhoto = new Photo({
+            file_name,
+            user_id: mongoose.Types.ObjectId(user_id),
+            date_time: new Date(),
+            comments: [],
+        });
+
+        await newPhoto.save();
+
+        res.status(201).send({ message: "Photo info saved", photo: newPhoto });
+    } catch (error) {
+        console.error(error);
+        res.status(500).send({ message: "Server error" });
+    }
+});
+
 export default router;
